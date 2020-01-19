@@ -1,17 +1,22 @@
 import axios from "axios"
 import Qs from "qs"
-axios.defaults.timeout = 3000;
+axios.defaults.timeout = 50000;
 
 export function GET(url, params){
+  console.log(params,"---------------------------------------")
   return new Promise((resolve, reject) =>{
     axios.get(url,{
       params: params
     }).then(res =>{
+      /*请求成功*/
+      console.log("请求成功")
       resolve(res.data);
       console.log(res.data)
     }).catch(err =>{
-      reject(err.data);
-      console.log(err.data())
+      /*请求失败*/
+      console.log("请求失败")
+      reject(err.code);
+      console.log(err.code)
     })
   });
 }

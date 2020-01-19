@@ -11,7 +11,7 @@
               <div class="col-1"></div>
               <div class="col-10">
                 <label for="username">USERNAME</label>
-                <input type="text" class="form-control" id="username" name="username" placeholder="用户名"/>
+                <input type="text" class="form-control" id="username" v-model="params.username" name="username"  placeholder="用户名"/>
               </div>
               <div class="col-1"></div>
             </div>
@@ -23,7 +23,7 @@
               <div class="col-1"></div>
               <div class="col-10">
                 <label for="password">PASSWORD</label>
-                <input type="password" class="form-control" id="password" name="password" placeholder="密码"/>
+                <input type="password" class="form-control" id="password" v-model="params.password" name="password" placeholder="密码"/>
               </div>
               <div class="col-1"></div>
             </div>
@@ -34,7 +34,7 @@
             <div class="row">
               <div class="col-1"></div>
               <div class="col-10">
-                <button type="button" class="btn btn-light">登录</button>
+                <button type="button" class="btn btn-light" @click="delFile()">登录</button>
               </div>
               <div class="col-1"></div>
             </div>
@@ -46,11 +46,27 @@
 </template>
 
 <script>
-  import {GET} from "../utils/http";
+  import {GET, POST} from "../utils/http";
   export default {
     name: "login",
+    data() {
+      return {
+        params: {
+          // username:"",
+          // password:"",
+          id: "2"
+        }
+      }
+    },
     methods:{
-      get:GET("https://www.baidu.com/",null),
+      delFile(){
+        let url = "http://localhost:8888/file/del";
+        GET(url,this.params).then(res =>{
+          console.log(res)
+        })
+      }
+    },
+    mounted() {
     }
   }
 </script>
