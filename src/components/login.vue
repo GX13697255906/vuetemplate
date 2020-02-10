@@ -34,7 +34,7 @@
             <div class="row">
               <div class="col-1"></div>
               <div class="col-10">
-                <button type="button" class="btn btn-light" @click="delFile()">登录</button>
+                <button type="button" class="btn btn-light" @click="selFile()">登录</button>
               </div>
               <div class="col-1"></div>
             </div>
@@ -54,15 +54,21 @@
         params: {
           // username:"",
           // password:"",
-          id: "2"
+          id: "1"
         }
       }
     },
     methods:{
+      selFile(){
+        let url = "http://localhost:8888/file/sel";
+        POST(url,this.params).then(res =>{
+          console.log(res.data())
+        })
+      },
       delFile(){
         let url = "http://localhost:8888/file/del";
         GET(url,this.params).then(res =>{
-          console.log(res)
+          console.log(res.result)
         })
       }
     },

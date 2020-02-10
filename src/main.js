@@ -6,7 +6,10 @@ import router from './router'
 import $ from 'jquery'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.min'
+import axios from 'axios'
 import {GET,POST} from './utils/http'
+
+  axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8';
 
 Vue.prototype.GET = GET;
 Vue.prototype.POST = POST;

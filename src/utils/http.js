@@ -23,6 +23,7 @@ export function GET(url, params){
 
 export function POST(url, params) {
   return new Promise((resolve, reject) => {
+    console.log(params)
     axios.post(url, Qs.stringify(params))
       .then(res =>{
         resolve(res.data);
