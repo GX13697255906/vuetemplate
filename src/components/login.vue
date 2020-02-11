@@ -54,7 +54,8 @@
         params: {
           // username:"",
           // password:"",
-          id: "1"
+
+          id: "2"
         }
       }
     },
@@ -62,7 +63,7 @@
       selFile(){
         let url = "http://localhost:8888/file/sel";
         POST(url,this.params).then(res =>{
-          console.log(res.data())
+          console.log(res.result)
         })
       },
       delFile(){
